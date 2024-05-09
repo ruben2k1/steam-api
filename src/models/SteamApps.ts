@@ -105,8 +105,29 @@ class SteamApps extends Steam implements ISteamApps {
         return [ res.status ];
     }
     
-    async setAppBuildLive(APP_ID: number, BUILD_ID: number, BETA_KEY: string, STEAM_ID: number, DESCRIPTION: string): Promise<any> {
+    async setAppBuildLive(APP_ID: number, BUILD_ID: number, BETA_KEY: string = 'PUBLIC', STEAM_ID?: number, DESCRIPTION?: string): Promise<void> {
+        const url = 'https://partner.steam-api.com/ISteamApps/SetAppBuildLive/v2/';
 
+        const bodyData = {
+            key: this.API_KEY,
+            appid: APP_ID,
+            buildid: BUILD_ID,
+            betakey: BETA_KEY,
+            steamid: STEAM_ID,
+            description: DESCRIPTION
+        }
+
+        const res: Response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyData)
+        })
+
+        if (!res.ok) {
+            throw new Error('The request could not be sent');
+        }
     }
     
     async upToDateCheck(APP_ID: number, VERSION: number): Promise<any> {

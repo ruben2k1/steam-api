@@ -7,6 +7,6 @@ interface ISteamApps {
     getPlayersBanned(APP_ID: number): Promise<any>;
     getServerList(FILTER: string, LIMIT: number): Promise<any>;
     getServersAtAddress(ADDR: string): Promise<any>;
-    setAppBuildLive(APP_ID: number, BUILD_ID: number, BETA_KEY: string, STEAM_ID: number, DESCRIPTION: string): Promise<any>;
+    setAppBuildLive(APP_ID: number, BUILD_ID: number, BETA_KEY: string, STEAM_ID: number, DESCRIPTION: string): Promise<void>;
     upToDateCheck(APP_ID: number, VERSION: number): Promise<any>;
 }
