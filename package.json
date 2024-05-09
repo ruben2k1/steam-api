@@ -1,0 +1,28 @@
+{
+  "name": "steam-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruben2k1/steam-api"
+  },
+  "keywords": [
+    "steam",
+    "api",
+    "valve"
+  ],
+  "author": "ruben2k1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruben2k1/steam-api/issues"
+  },
+  "homepage": "https://github.com/ruben2k1/steam-api#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
