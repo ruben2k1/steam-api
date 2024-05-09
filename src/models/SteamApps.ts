@@ -51,8 +51,14 @@ class SteamApps extends Steam implements ISteamApps {
         return [ res.status ];
     }
     
-    async getPartnerAppListForWebAPIKey(TYPE_FILTER: string): Promise<any> {
-        const res: Response = await fetch(`https://partner.steam-api.com/ISteamApps/GetPartnerAppListForWebAPIKey/v2/?key=${this.API_KEY}&type_filter=${TYPE_FILTER}`);
+    async getPartnerAppListForWebAPIKey(TYPE_FILTER?: string): Promise<any> {
+        let url = `https://partner.steam-api.com/ISteamApps/GetPartnerAppListForWebAPIKey/v2/?key=${this.API_KEY}`;
+        
+        if (TYPE_FILTER) {
+            url += `&type_filter=${TYPE_FILTER}`;
+        }
+
+        const res: Response = await fetch(url);
         
         if (res.ok) {
             const json: any = await res.json();
